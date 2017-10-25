@@ -1,48 +1,32 @@
-var pigLatin = function(userInput) {
-  var vowels = ["a","e", "i", "o", "u", "A","E", "I", "O", "U"]
-  var firstLetter = "";
-  var firstLast = "";
-  var twoLetter = "";
-  var twoLetterLast = "";
-  var threeLetter = "";
-  var firstLast = "";
-
+var pigLatin = "";
+var toPigLatin = function(sentence) {
+  var firstLetter = sentence.substring(0,1);
+  var firstLast = sentence.substring(1, sentence.length);
+  var twoLetter = sentence.substring(0,2);
+  var twoLetterLast = sentence.substring(2, sentence.length);
+  var threeLetter = sentence.substring(0,3);
+  var firstLast = sentence.substring(3, sentence.length);
+  var vowels = ["a","e", "i", "o", "u", "A","E", "I", "O", "U"];
   for (var index = 0; index < firstLetter.length; index++){
       for (var vowelIndex =0; vowelIndex < vowels.length; vowelIndex++) {
         if (firstLetter[index] === vowels[vowelIndex]){
-          result[index] = userInput + "way";
-  // if (firstLetter === vowel) {
-  //   result = (userInput + way)
-  // } else if ( firstLetter !== vowel) {
-  //   result = (userInput + firstLetter + ay)
+         return sentence + "way";
         };
       };
     };
-  };
-
+};
 
 
 $(document).ready(function() {
   $("form#pig-form").submit(function(event) {
     event.preventDefault();
     var userInput = $("input#pigLatin").val();
-    var firstLetter = userInput.substring(0,1);
-    var firstLast = userInput.substring(1, userInput.length);
-    var twoLetter = userInput.substring(0,2);
-    var twoLetterLast = userInput.substring(2, userInput.length);
-    var threeLetter = userInput.substring(0,3);
-    var firstLast = userInput.substring(3, userInput.length);
-    var result = pigLatin(userInput);
+    var splt = userInput.split("");
+    var pigLatin = toPigLatin(userInput);
 
-    $(".pigLatinResult").text(result);
+    $("#result").append("<p>" + pigLatin + "</p>")
+
+
+
   });
 });
-
-
-
-
-
-  //
-  // // Back End
-
-// var firstLetter = []
