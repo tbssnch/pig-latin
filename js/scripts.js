@@ -7,7 +7,7 @@ var toPigLatin = function(sentence) {
   var threeLetter = sentence.substring(0,3);
   var threeLast = sentence.substring(3, sentence.length);
   var vowels = ["a","e", "i", "o", "u", "A","E", "I", "O", "U", "y", "Y"];
-  var qu = "qu"
+  var qu = "qu";
   for (var index = 0; index < firstLetter.length; index++){
       for (var vowelIndex =0; vowelIndex < vowels.length; vowelIndex++)
       { if (firstLetter === "y"){
@@ -30,11 +30,11 @@ var toPigLatin = function(sentence) {
     for (var vowelIndex =0; vowelIndex < vowels.length; vowelIndex++) {
       if (threeLetter[index] === vowels[vowelIndex]){
         return twoLetterLast + twoLetter + "ay"
+      } else if (threeLetter[index] !== vowels[vowelIndex]){
+        return threeLast + threeLetter + "ay"
       }
-       else {
-       return sentence
       }
-      }
+
     };
     };
 
@@ -43,9 +43,8 @@ $(document).ready(function() {
   $("form#pig-form").submit(function(event) {
     event.preventDefault();
     var userInput = $("input#pigLatin").val();
-    var stringInput = userInput.slice();
-    // var splt = userInput.split("");
-    var pigLatin = toPigLatin(userInput.slice());
+    var stringInput = userInput.split;
+    var pigLatin = toPigLatin(userInput);
 
     $("#result").append("<p>" + pigLatin + "</p>")
 
